@@ -118,7 +118,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 3.75
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -126,8 +126,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &7735541864214858506
@@ -149,6 +149,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   npcState: 0
+  player: {fileID: 0}
 --- !u!95 &5143448944358120532
 Animator:
   serializedVersion: 5

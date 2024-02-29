@@ -38,8 +38,8 @@ public class ProcGen : MonoBehaviour
                 GameObject NPC = Instantiate(this.NPC, new Vector3(45 - column * 10, 1.5f, 45 - row * 10), Quaternion.identity);
             } else if (text[i] == '3')
             {
-                GameObject target = Instantiate(this.target, new Vector3(45 - column * 10, 1.5f, 45 - row * 10), Quaternion.identity);
-                target.name = "Target";
+                //GameObject target = Instantiate(this.target, new Vector3(45 - column * 10, 1.5f, 45 - row * 10), Quaternion.identity);
+                //target.name = "Target";
             }
         }
     }

@@ -11,6 +11,8 @@ public class Type1NPC : MonoBehaviour
     
     private Animator anim;
     private AnimatorStateInfo info;
+
+    private bool isInTheFieldOfView;
     
     public enum State
     {
@@ -27,13 +29,14 @@ public class Type1NPC : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+        waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
     }
 
     // Update is called once per frame
     void Update()
     {
         info = anim.GetCurrentAnimatorStateInfo(0);
-        npcState = State.Path;  
+        npcState = State.Path;
         
         NewLook();
         Listen();
@@ -57,6 +60,12 @@ public class Type1NPC : MonoBehaviour
             case State.ChasePlayer:
             {
                 GetComponent<NavMeshAgent>().SetDestination(player.transform.position);
+                
+                if (!isInTheFieldOfView)
+                {
+                    anim.SetBool("SeePlayer", false);
+                }
+                
                 break;
             }
         }
@@ -108,7 +117,7 @@ public class Type1NPC : MonoBehaviour
     {
         Vector3 direction = (GameObject.Find("Player").transform.position - transform.position).normalized;
 
-        bool isInTheFieldOfView = (Vector3.Dot(transform.forward.normalized, direction) > 0.7f);
+        isInTheFieldOfView = (Vector3.Dot(transform.forward.normalized, direction) > 0.7f);
         
         Debug.DrawRay(transform.position, direction * 100, Color.green);
         Debug.DrawRay(transform.position, transform.forward * 100, Color.cyan);
@@ -122,13 +131,13 @@ public class Type1NPC : MonoBehaviour
         ray.origin = transform.position + Vector3.up * 0.7f;
         string objectInSight = "";
 
-        float castingDistance = 20;
+        float castingDistance = 10;
         ray.direction = transform.forward * castingDistance;
         Debug.DrawRay(ray.origin, ray.direction * castingDistance, Color.red);
 
         if(Physics.Raycast(ray.origin, direction, out hit, castingDistance)){
             objectInSight = hit.collider.gameObject.name;
-            if (objectInSight == "Player" || isInTheFieldOfView)
+            if (objectInSight == "Player" && isInTheFieldOfView)
             {
                 anim.SetBool("SeePlayer", true);
                 npcState = State.ChasePlayer;

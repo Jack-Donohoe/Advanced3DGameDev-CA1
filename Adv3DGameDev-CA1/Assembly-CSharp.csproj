@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\ProcGen.cs" />
      <Compile Include="Assets\StarterAssets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\Type1NPC.cs" />
+     <Compile Include="Assets\Scripts\PlayerShooting.cs" />
      <Compile Include="Assets\Scripts\GenerateBreadcrumbs.cs" />
      <Compile Include="Assets\StarterAssets\FirstPersonController\Scripts\BasicRigidBodyPush.cs" />
      <Compile Include="Assets\StarterAssets\FirstPersonController\Scripts\FirstPersonController.cs" />
@@ -63,6 +64,7 @@
      <Folder Include="Assets\StarterAssets\TutorialInfo\Scripts" />
      <Folder Include="Assets\Resources" />
      <Folder Include="Assets\StarterAssets\FirstPersonController\Scenes" />
+     <None Include="Assets\Resources\maze.txt" />
      <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\Prefabs\NPCs" />
      <Folder Include="Assets\Prefabs" />
