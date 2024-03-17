@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class Type1NPC : MonoBehaviour
 {
-    public GameObject target;
     public GameObject[] waypoints;
     private int waypointCount = 0;
     
@@ -13,6 +12,9 @@ public class Type1NPC : MonoBehaviour
     private AnimatorStateInfo info;
 
     private bool isInTheFieldOfView;
+    
+    public int health;
+    public int ammo;
     
     public enum State
     {
@@ -23,6 +25,10 @@ public class Type1NPC : MonoBehaviour
     public State npcState;
 
     public GameObject player;
+    public GameObject bullet;
+
+    private float shootCooldown = 3f;
+    public Transform shootPoint;
     
     // Start is called before the first frame update
     void Start()
@@ -30,6 +36,8 @@ public class Type1NPC : MonoBehaviour
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
+        health = 50;
+        ammo = 5;
     }
 
     // Update is called once per frame
@@ -37,6 +45,8 @@ public class Type1NPC : MonoBehaviour
     {
         info = anim.GetCurrentAnimatorStateInfo(0);
         npcState = State.Path;
+
+        shootCooldown -= Time.deltaTime;
         
         NewLook();
         Listen();
@@ -46,7 +56,7 @@ public class Type1NPC : MonoBehaviour
         {
             case State.Path:
             {
-                target = waypoints[waypointCount];
+                GameObject target = waypoints[waypointCount];
                 
                 if (Vector3.Distance(transform.position, target.transform.position) < 1)
                 {
@@ -60,12 +70,19 @@ public class Type1NPC : MonoBehaviour
             case State.ChasePlayer:
             {
                 GetComponent<NavMeshAgent>().SetDestination(player.transform.position);
+                transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
                 
                 if (!isInTheFieldOfView)
                 {
                     anim.SetBool("SeePlayer", false);
                 }
-                
+
+                if (shootCooldown < 0)
+                {
+                    Shoot();
+                    shootCooldown = 3f;
+                }
+
                 break;
             }
         }
@@ -146,6 +163,45 @@ public class Type1NPC : MonoBehaviour
             {
                 anim.SetBool("SeePlayer", false);
             }
+        }
+    }
+
+    void Shoot()
+    {
+        if (ammo > 0)
+        {
+            GameObject bul = Instantiate(bullet, shootPoint.position, Quaternion.identity);
+            bul.GetComponent<Rigidbody>().AddForce(transform.forward * 60f, ForceMode.Impulse);
+            ammo -= 1;
+        }
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    
+    public void AddHealth(int healthToAdd)
+    {
+        health += healthToAdd;
+
+        if (health > 100)
+        {
+            health = 100;
+        }
+    }
+
+    public void AddAmmo(int ammoToAdd)
+    {
+        ammo += ammoToAdd;
+
+        if (ammo > 25)
+        {
+            ammo = 25;
         }
     }
 }

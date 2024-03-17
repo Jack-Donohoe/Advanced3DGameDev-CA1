@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638448261573412136
-    m_Hash: 2528029814
+      ticks: 638462878281171180
+    m_Hash: 894035675
   m_LockFileStatus:
     m_FilePath: C:/Users/Jack/Documents/GitHub/Advanced3DGameDev-CA1/Adv3DGameDev-CA1/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638448261573457319
-    m_Hash: 1219193837
+      ticks: 638462878281211448
+    m_Hash: 291875568
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -183,6 +183,7 @@ m_ResolvedPackages:
     - 2.9.4
     - 2.9.5
     - 2.9.7
+    - 2.10.0
     - 3.0.0-pre.3
     - 3.0.0-pre.4
     - 3.0.0-pre.5
@@ -194,6 +195,7 @@ m_ResolvedPackages:
     compatible:
     - 2.9.5
     - 2.9.7
+    - 2.10.0
     - 3.0.0-pre.3
     - 3.0.0-pre.4
     - 3.0.0-pre.5
@@ -569,12 +571,16 @@ m_ResolvedPackages:
     - 1.7.0
     - 1.8.0-pre.1
     - 1.8.0-pre.2
+    - 1.8.0
+    - 1.8.1
     compatible:
     - 1.6.1
     - 1.6.3
     - 1.7.0
     - 1.8.0-pre.1
     - 1.8.0-pre.2
+    - 1.8.0
+    - 1.8.1
     recommended: 1.6.3
     deprecated: []
   dependencies:
@@ -624,12 +630,12 @@ m_ResolvedPackages:
     deprecationMessage: 
   isDeprecated: 0
   deprecationMessage: 
-- packageId: com.unity.textmeshpro@3.0.6
+- packageId: com.unity.textmeshpro@3.0.8
   testable: 0
   isDirectDependency: 1
-  version: 3.0.6
+  version: 3.0.8
   source: 1
-  resolvedPath: C:\Users\Jack\Documents\GitHub\Advanced3DGameDev-CA1\Adv3DGameDev-CA1\Library\PackageCache\com.unity.textmeshpro@3.0.6
+  resolvedPath: C:\Users\Jack\Documents\GitHub\Advanced3DGameDev-CA1\Adv3DGameDev-CA1\Library\PackageCache\com.unity.textmeshpro@3.0.8
   assetPath: Packages/com.unity.textmeshpro
   name: com.unity.textmeshpro
   displayName: TextMeshPro
@@ -638,7 +644,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: Text Rendering
-  type: asset
+  type: assets
   description: 'TextMeshPro is the ultimate text solution for Unity. It''s the perfect
     replacement for Unity''s UI Text and the legacy Text Mesh.
 
@@ -799,13 +805,13 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 637547111200000000
-  documentationUrl: 
+  datePublishedTicks: 638433339070000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.0/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.textmeshpro.git
-    revision: 01e57e3b7de18af9dfe9baaa0a0ff5cc4765c899
+    revision: dd92f03985c9bda38a4721cc146a6b74d2832a1f
     path: 
   unityLifecycle:
     version: 3.0.6
@@ -1104,10 +1110,12 @@ m_ResolvedPackages:
     - 1.8.0
     - 1.9.0
     - 1.9.1
+    - 1.9.2
     compatible:
     - 1.8.0
     - 1.9.0
     - 1.9.1
+    - 1.9.2
     recommended: 1.8.0
     deprecated:
     - 1.8.0-pre.1

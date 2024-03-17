@@ -5,7 +5,7 @@ using System.IO;
 
 public class ProcGen : MonoBehaviour
 {
-    public GameObject wall, target, NPC;
+    public GameObject wall, NPC_Type1, NPC_Type2, healthPack, ammoPack;
     
     // Start is called before the first frame update
     void Start()
@@ -35,11 +35,19 @@ public class ProcGen : MonoBehaviour
                 GameObject wall = Instantiate(this.wall, new Vector3(45 - column * 10, 1f, 45 - row * 10), Quaternion.identity, this.transform);
             } else if (text[i] == '2')
             {
-                GameObject NPC = Instantiate(this.NPC, new Vector3(45 - column * 10, 1.5f, 45 - row * 10), Quaternion.identity);
+                GameObject NPC = Instantiate(NPC_Type1, new Vector3(45 - column * 10, 1.5f, 45 - row * 10), Quaternion.identity);
             } else if (text[i] == '3')
             {
-                //GameObject target = Instantiate(this.target, new Vector3(45 - column * 10, 1.5f, 45 - row * 10), Quaternion.identity);
-                //target.name = "Target";
+                GameObject NPC = Instantiate(NPC_Type2, new Vector3(45 - column * 10, 1.5f, 45 - row * 10),
+                    Quaternion.identity);
+            } else if (text[i] == '8')
+            {
+                GameObject healthPack = Instantiate(this.healthPack, new Vector3(45 - column * 10, 1.5f, 45 - row * 10), Quaternion.identity);
+                healthPack.name = "healthPack";
+            } else if (text[i] == '9')
+            {
+                GameObject ammoPack = Instantiate(this.ammoPack, new Vector3(45 - column * 10, 1.5f, 45 - row * 10), Quaternion.identity);
+                ammoPack.name = "ammoPack";
             }
         }
     }
