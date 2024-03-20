@@ -77,7 +77,7 @@ public class Type1NPC : MonoBehaviour
                     anim.SetBool("SeePlayer", false);
                 }
 
-                if (shootCooldown < 0)
+                if (shootCooldown < 0 && Vector3.Distance(transform.position, player.transform.position) < 25f)
                 {
                     Shoot();
                     shootCooldown = 3f;

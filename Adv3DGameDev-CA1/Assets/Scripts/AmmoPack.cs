@@ -16,5 +16,10 @@ public class AmmoPack : MonoBehaviour
             other.gameObject.GetComponent<Type2NPC>().AddAmmo(5);
             Destroy(gameObject);
         }
+        else if (other.gameObject.CompareTag("Type3"))
+        {
+            other.gameObject.GetComponent<Type3NPC>().AddAmmo(5);
+            Destroy(gameObject);
+        }
     }
 }

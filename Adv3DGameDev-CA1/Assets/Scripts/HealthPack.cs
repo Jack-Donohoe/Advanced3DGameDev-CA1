@@ -17,5 +17,15 @@ public class HealthPack : MonoBehaviour
             other.gameObject.GetComponent<Type2NPC>().AddHealth(10);
             Destroy(gameObject);
         }
+        else if (other.gameObject.CompareTag("Type3"))
+        {
+            other.gameObject.GetComponent<Type3NPC>().AddHealth(10);
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.CompareTag("Type4"))
+        {
+            other.gameObject.GetComponent<Type4NPC>().AddHealth(10);
+            Destroy(gameObject);
+        }
     }
 }

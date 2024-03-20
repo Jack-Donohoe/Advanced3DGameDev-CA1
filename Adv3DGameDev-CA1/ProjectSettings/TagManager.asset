@@ -15,6 +15,7 @@ TagManager:
   - Type6
   - HealthPack
   - AmmoPack
+  - AmbushStart
   layers:
   - Default
   - TransparentFX

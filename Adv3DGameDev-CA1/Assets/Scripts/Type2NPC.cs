@@ -52,7 +52,7 @@ public class Type2NPC : MonoBehaviour
         waypointCount = Random.Range(0, waypoints.Length);
         health = 50;
         ammo = 5;
-        fleeDistance = 15f;
+        fleeDistance = 25f;
         fleeTarget = Instantiate(new GameObject(), this.transform);
         fleeTarget.name = "Flee Target";
     }
@@ -73,8 +73,6 @@ public class Type2NPC : MonoBehaviour
         Smell();
         CheckHealth();
         CheckAmmo();
-        
-        Debug.Log(npcState);
         
         switch (npcState)
         {
@@ -101,7 +99,7 @@ public class Type2NPC : MonoBehaviour
                     anim.SetBool("SeePlayer", false);
                 }
 
-                if (shootCooldown < 0)
+                if (shootCooldown < 0 && Vector3.Distance(transform.position, player.transform.position) < fleeDistance)
                 {
                     Shoot();
                     shootCooldown = 3f;
