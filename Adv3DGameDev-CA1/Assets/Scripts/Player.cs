@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -14,11 +15,32 @@ public class Player : MonoBehaviour
     public CinemachineVirtualCamera camera;
     public Transform shootPoint;
 
+    public float timer = 0f;
+
     private void Start()
     {
-        playerHealth = 100;
-        playerAmmo = 10;
-        pickupCount = 0;
+        playerHealth = DataManager.instance.playerHealth;
+        playerAmmo = DataManager.instance.playerAmmo;
+        pickupCount = DataManager.instance.pickupCount;
+        timer = DataManager.instance.timer;
+        gameObject.GetComponent<CharacterController>().enabled = false;
+        gameObject.transform.position = DataManager.instance.playerPos;
+        gameObject.GetComponent<CharacterController>().enabled = true;
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        
+        if (pickupCount == 10)
+        {
+            DataManager.instance.LoadNextLevel();
+        }
+
+        if (playerHealth <= 0 || timer >= 180f)
+        {
+            DataManager.instance.LoseGame();
+        }
     }
 
     public void TakeDamage(int damage)
@@ -54,5 +76,13 @@ public class Player : MonoBehaviour
             bul.GetComponent<Rigidbody>().AddForce(camera.transform.forward * 60f, ForceMode.Impulse);
             playerAmmo -= 1;
         }
+    }
+
+    public void SetPlayerParams(int health, int ammo, int pickups, Vector3 position)
+    {
+        playerHealth = health;
+        playerAmmo = ammo;
+        pickupCount = pickups;
+        gameObject.transform.position = position;
     }
 }

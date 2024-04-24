@@ -43,5 +43,19 @@ public class Bullet : MonoBehaviour
             other.gameObject.GetComponent<Type3NPC>().Hit();
             Destroy(gameObject);
         }
+        else if (other.gameObject.CompareTag("Type4"))
+        {
+            other.gameObject.GetComponent<Type4NPC>().TakeDamage(10);
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.CompareTag("Type6"))
+        {
+            other.gameObject.GetComponent<Follower>().TakeDamage(GameObject.FindGameObjectWithTag("Player"),10);
+            Destroy(gameObject);
+        } else if (other.gameObject.CompareTag("MobLeader"))
+        {
+            other.gameObject.GetComponent<Type6_MobLeader>().TakeDamage(10);
+            Destroy(gameObject);
+        }
     }
 }

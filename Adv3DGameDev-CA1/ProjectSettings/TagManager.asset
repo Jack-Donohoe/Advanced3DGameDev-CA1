@@ -16,6 +16,7 @@ TagManager:
   - HealthPack
   - AmmoPack
   - AmbushStart
+  - MobLeader
   layers:
   - Default
   - TransparentFX

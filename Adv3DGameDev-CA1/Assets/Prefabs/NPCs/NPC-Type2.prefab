@@ -177,11 +177,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   health: 50
-  ammo: 10
+  ammo: 15
   npcState: 0
   player: {fileID: 0}
   bullet: {fileID: 8841494476768066744, guid: ca48ac4496e56e0489bc837e59009993, type: 3}
   shootPoint: {fileID: 5047577545508437213}
+  fleeTarget: {fileID: 0}
 --- !u!95 &5143448944358120532
 Animator:
   serializedVersion: 5

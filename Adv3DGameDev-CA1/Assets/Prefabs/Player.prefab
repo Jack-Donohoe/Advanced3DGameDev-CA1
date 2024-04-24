@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2434327658784880063}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0.6}
+  m_LocalPosition: {x: 0, y: 1, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -289,11 +289,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 4
-  SprintSpeed: 6
+  MoveSpeed: 6
+  SprintSpeed: 10
   RotationSpeed: 1
   SpeedChangeRate: 10
-  JumpHeight: 1.2
+  JumpHeight: 2
   Gravity: -15
   JumpTimeout: 0.1
   FallTimeout: 0.15
@@ -465,12 +465,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f05df3efe5a7d64eb39cc9886fbddd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 0
-  playerAmmo: 0
+  playerHealth: 100
+  playerAmmo: 10
   pickupCount: 0
   bullet: {fileID: 8841494476768066744, guid: ca48ac4496e56e0489bc837e59009993, type: 3}
   camera: {fileID: 2732070395627642659}
   shootPoint: {fileID: 9070916993009294584}
+  timer: 180
 --- !u!1 &8614958900611524681
 GameObject:
   m_ObjectHideFlags: 0

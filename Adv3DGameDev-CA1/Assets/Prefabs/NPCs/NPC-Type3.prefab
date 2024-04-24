@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d27262ac60f874ca50ea02ca59a039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  ammo: 0
+  health: 50
+  ammo: 15
   npcState: 0
   player: {fileID: 0}
   bullet: {fileID: 8841494476768066744, guid: ca48ac4496e56e0489bc837e59009993, type: 3}
